@@ -24,8 +24,13 @@ So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at th
 
 To install Miniconda, use the installer link at https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/ and then install it in your normal terminal. Remember not to run this in a Rosetta Terminal, if you created one, because this installer script can run in your regular ARM terminal. 
 
+#### Things that kinda or totally don't work
+- JupyterLab & Notebooks: This does not run at all in ARM or Rosetta x86 Emulation.
+- PyTorch: PyTorch installs on Rosetta Anaconda or ARM Miniforge, but it's not ARM optimized.
+- Scikit-Learn: I think it works on Intel Rosetta, but it's not ARM optimized nor can be installed on the ARM Miniforge.
+
 #### If you prefer Anaconda
-If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal). Of note, this won't work with JupyterLab or Jupyter Notebooks -- both are a no go on ARM.
+If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal).
 
 #### Python 3.8 downgrade
 Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 3.9 that Miniconda comes with. Remember that is still an option with Miniforge, you can downgrade by creating a new environment using something like this: `conda create --name python38 python=3.8`. 
@@ -68,4 +73,3 @@ pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies -
 ## Software that'll take some time
 * [Docker](https://www.docker.com/blog/apple-silicon-m1-chips-and-docker/)
 * [R or Fortran](https://developer.r-project.org/Blog/public/2020/11/02/will-r-work-on-apple-silicon/)
-* [Optimized PyTorch (though this issue is working towards compiling PyTorch on ARM)](https://github.com/pytorch/pytorch/pull/48275)
