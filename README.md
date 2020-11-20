@@ -42,7 +42,7 @@ If you must use Anaconda because a package isn't ARM ready, you can use Rosetta 
 Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 3.9 that Miniconda comes with. Remember that is still an option with Miniforge, you can downgrade by creating a new environment using something like this: `conda create --name python38 python=3.8`. 
 
 ## TensorFlow
-Apple has created a TensorFlow that is optimized for their ARM Processors and GPUs. Their default installation works well if you're willing to let it create its own Python Virtual Environment. But if you want to use TensorFlow in your Miniconda enviornment, download the tar.gz release from the Git Repo and then adapt the bash script below to install it in your conda environment.
+[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. Their default installation works well if you're willing to let it create its own Python Virtual Environment. But if you want to use TensorFlow in your Miniconda enviornment, [download the tar.gz release from the Git Repo](https://github.com/apple/tensorflow_macos/releases) and then adapt the bash script below to install it in your conda environment.
 
 ```bash
 # Put a path to where the arm64 libraries are. For example...
