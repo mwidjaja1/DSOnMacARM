@@ -7,7 +7,7 @@ To install Homebrew... you can't. Homebrew relies on GCC which isn't ARM ready a
 The good news is Apple made Rosetta, which is a way to emulate Intel/x86 Software on your ARM processor. There are two ways to use Rosetta in your terminal
 
 1. Add `arch -x86_64` before your terminal commands OR
-2. [Just create a terminal that always launches in Rosetta](https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/)
+2. [Recommended: Just create a terminal that always launches in Rosetta](https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/)
 
 Once you do that, you can install Homebrew using Rosetta and get access to most of its packages.
 
@@ -30,7 +30,7 @@ To install Miniconda, use the installer link at https://conda-forge.org/blog/pos
 - Scikit-Learn: I think it works on Intel Rosetta, but it's not ARM optimized nor can be installed on the ARM Miniforge.
 
 #### If you prefer Anaconda
-If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal).
+If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal). You can then use said terminal to install Anaconda. Remember that just because you can emulate Anaconda doesn't mean you will be able to successfully run every package.
 
 #### Python 3.8 downgrade
 Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 3.9 that Miniconda comes with. Remember that is still an option with Miniforge, you can downgrade by creating a new environment using something like this: `conda create --name python38 python=3.8`. 
