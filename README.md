@@ -17,17 +17,23 @@ Remember that Apple Command Line Tools has compilers that your Mac might need. Y
 If you're coming from an old Mac's backup, you may want to delete your older version and reinstall it so you can grab the new architecture's edition. To delete your older version, delete this folder: `/Library/Developer/CommandLineTools`.
 
 ## Python (i.e. Anaconda/Miniforge)
-So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture. That said even though it has Conda, that doesn't mean all packages are ARM ready -- only some are. The quick way to see what packages are available for ARM are if you:
+So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture.
+
+To install Miniforge, use the installer link at https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/ and then install it in your normal terminal. Remember not to run this in a Rosetta Terminal, if you created one, because this installer script can run in your regular ARM terminal. 
+
+That said even though it has Conda, that doesn't mean all packages are ARM ready -- only some are. The quick way to see what packages are available for ARM are if you:
 
 1. See a package made by conda-forge (https://anaconda.org/conda-forge) AND
 2. That package has an architecture of `osx-arm64` or `noarch` (though `noarch` is not guaranteed to work -- of note, JupyterLab did not work).
 
-To install Miniconda, use the installer link at https://conda-forge.org/blog/posts/2020-10-29-macos-arm64/ and then install it in your normal terminal. Remember not to run this in a Rosetta Terminal, if you created one, because this installer script can run in your regular ARM terminal. 
+If your package meets both requirements, you can install it by running `conda -c conda-forge <PACKAGE>` once you have Miniforge installed.
 
 #### Things that kinda or totally don't work
 - JupyterLab & Notebooks: This does not run at all in ARM or Rosetta x86 Emulation.
-- PyTorch: PyTorch installs on Rosetta Anaconda or ARM Miniforge, but it's not ARM optimized.
-- Scikit-Learn: I think it works on Intel Rosetta, but it's not ARM optimized nor can be installed on the ARM Miniforge.
+- Keras: Just no.
+- PyTorch: PyTorch installs on Rosetta Anaconda or ARM Miniforge, but it's not ARM optimized yet.
+- Scikit-Learn: It should work on Intel Rosetta and an [ARM Optimized version is coming](https://github.com/conda-forge/scikit-learn-feedstock/pull/137)
+- Statsmodel: It probably will work on Intel Rosetta but it's definately not ARM optimized yet.
 
 #### If you prefer Anaconda
 If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal). You can then use said terminal to install Anaconda. Remember that just because you can emulate Anaconda doesn't mean you will be able to successfully run every package.
