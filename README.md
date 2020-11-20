@@ -4,7 +4,17 @@ So I got a 'day one' m1 Macbook Air (i.e. an Apple Silicon ARM Mac) and I had to
 ## Homebrew and Rosetta Terminal
 To install Homebrew... you can't. Homebrew relies on GCC which isn't ARM ready and is unlikely to be anytime soon.
 
-The good news is Apple made Rosetta, which is a way to emulate Intel/x86 Software on your ARM processor. Furthermore, you can launch your terminal in Rosetta mode so it'll automatically compile everything from its Intel/x86 origins to ARM. You can do that by following the tips at https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/ and you can then install Homebrew in that terminal window.
+The good news is Apple made Rosetta, which is a way to emulate Intel/x86 Software on your ARM processor. There are two ways to use Rosetta in your terminal
+
+1. Add `arch -x86_64` before your terminal commands OR
+2. [Just create a terminal that always launches in Rosetta](https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/)
+
+Once you do that, you can install Homebrew using Rosetta and get access to most of its packages.
+
+#### Apple Command Line Tools
+Remember that Apple Command Line Tools has compilers that your Mac might need. You can install it by running `xcode-select —install`.
+
+If you're coming from an old Mac's backup, you may want to delete your older version and reinstall it so you can grab the new architecture's edition. To delete your older version, delete this folder: `/Library/Developer/CommandLineTools`.
 
 ## Python (i.e. Anaconda/Miniforge)
 So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture. That said even though it has Conda, that doesn't mean all packages are ARM ready -- only some are. The quick way to see what packages are available for ARM are if you:
@@ -54,3 +64,8 @@ pip install wrapt flatbuffers tensorflow_estimator google_pasta keras_preprocess
 
 pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_macos-0.1a0-cp38-cp38-macosx_11_0_arm64.whl"
 ```
+
+## Software that'll take some time
+* [Docker](https://www.docker.com/blog/apple-silicon-m1-chips-and-docker/)
+* [R or Fortran](https://developer.r-project.org/Blog/public/2020/11/02/will-r-work-on-apple-silicon/)
+* [Optimized PyTorch (though this issue is working towards compiling PyTorch on ARM)](https://github.com/pytorch/pytorch/pull/48275)
