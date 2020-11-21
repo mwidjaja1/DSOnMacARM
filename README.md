@@ -12,7 +12,7 @@ The good news is Apple made Rosetta, which is a way to emulate Intel/x86 Softwar
 Once you do that, you can install Homebrew using Rosetta and get access to most of its packages.
 
 #### Apple Command Line Tools
-Remember that Apple Command Line Tools has compilers that your Mac might need. You can install it by running `xcode-select —install`.
+Remember that Apple Command Line Tools has compilers that your Mac might need. You can install it by running `xcode-select --install`. Note that if you update macOS, these Command Line tools may vanish, so note that you may need to rerun this command more in the future.
 
 If you're coming from an old Mac's backup, you may want to delete your older version and reinstall it so you can grab the new architecture's edition. To delete your older version, delete this folder: `/Library/Developer/CommandLineTools`.
 
