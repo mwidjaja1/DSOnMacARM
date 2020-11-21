@@ -16,6 +16,8 @@ Remember that Apple Command Line Tools has compilers that your Mac might need. Y
 
 If you're coming from an old Mac's backup, you may want to delete your older version and reinstall it so you can grab the new architecture's edition. To delete your older version, delete this folder: `/Library/Developer/CommandLineTools`.
 
+---
+
 ## Python (i.e. Anaconda/Miniforge)
 So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture.
 
@@ -27,6 +29,16 @@ That said even though it has Conda, that doesn't mean all packages are ARM ready
 2. That package has an architecture of `osx-arm64` or `noarch` (though `noarch` is not guaranteed to work -- of note, JupyterLab did not work).
 
 If your package meets both requirements, you can install it by running `conda -c conda-forge <PACKAGE>` once you have Miniforge installed.
+
+#### Things you can definately get on an ARM Python
+Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means unlike Intel, these aren't emulated so they can run on the CPU natively.
+
+- Matplotlib
+- Numpy
+- Pandas
+- Scikit-Learn (Added on 11/21/2020)
+- Scipy
+- TensorFlow by manually installing Apple's version (more on this below)
 
 #### Things that kinda or totally don't work
 - JupyterLab & Notebooks: This does not run at all in ARM or Rosetta x86 Emulation.
@@ -40,6 +52,8 @@ If you must use Anaconda because a package isn't ARM ready, you can use Rosetta 
 
 #### Python 3.8 downgrade
 Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 3.9 that Miniconda comes with. Remember that is still an option with Miniforge, you can downgrade by creating a new environment using something like this: `conda create --name python38 python=3.8`. 
+
+---
 
 ## TensorFlow
 [Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. Their default installation works well if you're willing to let it create its own Python Virtual Environment. But if you want to use TensorFlow in your Miniconda enviornment, [download the tar.gz release from the Git Repo](https://github.com/apple/tensorflow_macos/releases) and then adapt the bash script below to install it in your conda environment.
@@ -75,6 +89,7 @@ pip install wrapt flatbuffers tensorflow_estimator google_pasta keras_preprocess
 
 pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_macos-0.1a0-cp38-cp38-macosx_11_0_arm64.whl"
 ```
+---
 
 ## Software that'll take some time
 * [Docker](https://www.docker.com/blog/apple-silicon-m1-chips-and-docker/)
