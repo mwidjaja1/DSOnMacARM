@@ -34,13 +34,13 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - Pandas
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
+- Statsmodel (Added on 11/21/2020 -- I'm skeptical how well it works though. It installs but without an ARM Fortran compiler, I gotta imagine some methods will be buggy or slow).
 - TensorFlow by manually installing Apple's version (more on this below)
 
 ### Things that kinda or totally don't work
 - JupyterLab & Notebooks: This does not run at all in ARM or Rosetta x86 Emulation.
 - Keras: Just no.
 - PyTorch: PyTorch installs on Rosetta Anaconda or ARM Miniforge, but it's not ARM optimized yet.
-- Statsmodel: It probably will work on Intel Rosetta but it's not ARM optimized yet and won't be until a Fortran ARM compiler happens.
 
 ### If you prefer Anaconda
 If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal). You can then use said terminal to install Anaconda. Remember that just because you can emulate Anaconda doesn't mean you will be able to successfully run every package.
