@@ -30,6 +30,7 @@ If your package meets both requirements, you can install it by running `conda -c
 Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means unlike Intel, these aren't emulated so they can run on the CPU natively. That said, take all these with a grain of salt, I haven't got the chance to put all of these packages to their paces so some functionality may still be broken.
 
 - Bokeh (Added on 11/23/2020)
+- JupyterLab & Notebooks: It currently works via native ARM, but you need to change one line in the `ipykernel` source code to get it running at the time this was written (11/2020). Those instructions are at: https://github.com/ipython/ipykernel/pull/561
 - Matplotlib
 - Numpy
 - Pandas
@@ -40,7 +41,6 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - TensorFlow by manually installing Apple's version (more on this below)
 
 ### Things that kinda or totally don't work
-- JupyterLab & Notebooks: It currently works via native ARM, but you need to change one line in the `ipykernel` source code to get it running at the time this was written (11/2020). Those instructions are at: https://github.com/ipython/ipykernel/pull/561
 - Keras: Just no.
 - PyTorch: Yes, PyTorch is in the above list of working software, but it has side packages such as TorchVision that isn't ARM Compatible quite yet. You can install it using Rosetta, under a Rosetta translated version of Python, pretty easily though.
 - TensorFlow: Yes, TensorFlow is also in the list above, but it's also here because while Apple's version works, it is currently just forked from the real TensorFlow. The officially updated TensorFlow that you can get from `conda` or `pip` has not been ARM updated and thus these paths could diverge unless Apple and TensorFlow work together a bit closer.
