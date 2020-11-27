@@ -37,7 +37,7 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - PyTorch by manually installing the latest version from source (i.e. you cannot use `pip` or `conda` at this time, Nov 2020, to install it). More on this below.
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
-- Statsmodel (Added on 11/21/2020 -- I'm skeptical how well it works though. It installs but without an ARM Fortran compiler, I gotta imagine some methods will be buggy or slow).
+- Statsmodel (Added on 11/21/2020)
 - TensorFlow by manually installing Apple's version (more on this below)
 
 ### Things that kinda or totally don't work
