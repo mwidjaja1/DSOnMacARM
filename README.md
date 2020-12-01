@@ -30,7 +30,7 @@ If your package meets both requirements, you can install it by running `conda -c
 Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means unlike Intel, these aren't emulated so they can run on the CPU natively. That said, take all these with a grain of salt, I haven't got the chance to put all of these packages to their paces so some functionality may still be broken.
 
 - Bokeh (Added on 11/23/2020)
-- JupyterLab & Notebooks: It currently works via native ARM, but you need to change one line in the `ipykernel` source code to get it running at the time this was written (11/2020). Those instructions are at: https://github.com/ipython/ipykernel/pull/561
+- JupyterLab & Notebooks: The latest version of `appnope` (updated around 11/30/2020) has fixed a Ctypes bug on ARM, which now permits Jupyter to run on ARM.
 - Matplotlib
 - Numpy
 - Pandas
