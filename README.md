@@ -12,6 +12,8 @@ Once you do that, you can install Homebrew using Rosetta and get access to most 
 # Homebrew & Apple Command Line Tools
 To learn more about Homebrew & Apple's Command Line Tools (to setup Apple's compilers which they used to compile C and other code), check out https://github.com/mikelxc/Workarounds-for-ARM-mac.
 
+Disclaimer: I personally have not had the success this original author had. For me Python 3.9 fails to install via ARM Homebrew, because of this Upstream Issue here https://github.com/python/cpython/pull/23556. You CAN install Python using the Miniforge route below and use it perfectly fine. But, that won't be the Python Homebrew uses and a lot of Homebrew installs hinge on their version of Python working. If you'd like to quickly implement a short-term 'patch' to get things working via Homebrew, this should work but I haven't tested it: https://github.com/Homebrew/homebrew-core/pull/65866/files
+
 ---
 
 # Python (i.e. Anaconda/Miniforge)
