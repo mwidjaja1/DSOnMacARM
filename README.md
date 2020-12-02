@@ -9,6 +9,10 @@ Rosetta is a way to emulate Intel/x86 Software on your ARM processor. There are 
 
 Once you do that, you can install Homebrew using Rosetta and get access to most of its packages.
 
+Note that not everything compiles in Rosetta and you should be wary of it. I have not tested the world of software but of note, Docker is one of the most prominent examples that will not work with Rosetta. Scroll down to the very last section to see the list of all programs that won't work at all.
+
+---
+
 # Homebrew & Apple Command Line Tools
 To learn more about Homebrew & Apple's Command Line Tools (to setup Apple's compilers which they used to compile C and other code), check out https://github.com/mikelxc/Workarounds-for-ARM-mac.
 
