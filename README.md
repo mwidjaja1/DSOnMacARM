@@ -103,5 +103,5 @@ If you still want to install PyTorch, you'll want to first install Python using 
 ---
 
 ## Software that'll take some time
-* [Docker](https://www.docker.com/blog/apple-silicon-m1-chips-and-docker/)
+* [Docker](https://www.docker.com/blog/expanding-dockers-developer-preview-program/): Update as of 12/10, there is a Developer Preview Program to test an Apple Silicon Docker.
 * [R or Fortran](https://developer.r-project.org/Blog/public/2020/11/02/will-r-work-on-apple-silicon/)
