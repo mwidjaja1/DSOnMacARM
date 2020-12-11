@@ -61,39 +61,11 @@ Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 
 Each recipe for Python Packages appear to flip-flop between wanting Conda version 4.9.0 or something newer. If you have to jump around to make things work, remember the command is `conda install conda=PUT_VERSION_HERE`.
 
 ### TensorFlow
-[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. Their default installation works well if you're willing to let it create its own Python Virtual Environment. But if you want to use TensorFlow in your Miniconda enviornment, [download the tar.gz release from the Git Repo](https://github.com/apple/tensorflow_macos/releases) and then adapt the bash script below to install it in your conda environment.
+[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. As I type this on 12/10/2020, Apple released a new version of TensorFlow but there is a typo in the install script. I have proposed a Pull Request to Apple fixing this AND enabling support for Conda/Miniforge Python at https://github.com/apple/tensorflow_macos/pull/63.
 
-```bash
-# Put a path to where the arm64 libraries are. For example...
-libs="/Users/Matthew/Downloads/tensorflow_macos/arm64/"
+If you download the .tar.gz release and plop my installation script from that PR over the original script, the command to execute it would be:
 
-# Replace this with the path of your Conda environment
-env="/Users/Matthew/miniforge3/envs/python38"
-
-# The rest should work
-conda upgrade -c conda-forge pip setuptools cached-property six
-
-pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/grpcio-1.33.2-cp38-cp38-macosx_11_0_arm64.whl"
-
-pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/h5py-2.10.0-cp38-cp38-macosx_11_0_arm64.whl"
-
-pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_addons-0.11.2+mlcompute-cp38-cp38-macosx_11_0_arm64.whl"
-
-conda install -c conda-forge -y absl-py
-conda install -c conda-forge -y astunparse
-conda install -c conda-forge -y gast
-conda install -c conda-forge -y opt_einsum
-conda install -c conda-forge -y termcolor
-conda install -c conda-forge -y typing_extensions
-conda install -c conda-forge -y wheel
-conda install -c conda-forge -y typeguard
-
-pip install tensorboard
-
-pip install wrapt flatbuffers tensorflow_estimator google_pasta keras_preprocessing protobuf
-
-pip install --upgrade -t "$env/lib/python3.8/site-packages/" --no-dependencies --force "$libs/tensorflow_macos-0.1a0-cp38-cp38-macosx_11_0_arm64.whl"
-```
+`bash ./scripts/install_venv.sh --prompt` and at the prompt, provide the path to your env. For example if your env is named `tensorflow` and your Miniforge Python is installed in your home directory, you'd pass in: `/Users/Matthew/miniforge3/envs/tensorflow`. 
 
 ### PyTorch
 At the time this section was written, Nov 27 2020, PyTorch had a merge request that has been merged to add ARM Compilation (https://github.com/pytorch/pytorch/pull/48275) but this has not been oficially released. This means, to use PyTorch, you must compile PyTorch on your own. Furthermore even if you go down this route, several PyTorch 'side' packages do not work, such as TorchVision.
