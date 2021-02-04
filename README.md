@@ -76,11 +76,7 @@ Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 
 Each recipe for Python Packages appear to flip-flop between wanting Conda version 4.9.0 or something newer. If you have to jump around to make things work, remember the command is `conda install conda=PUT_VERSION_HERE`.
 
 ### TensorFlow
-[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. As I type this on 12/10/2020, Apple released a new version of TensorFlow but there is a typo in the install script. I have proposed a Pull Request to Apple fixing this AND enabling support for Conda/Miniforge Python at https://github.com/apple/tensorflow_macos/pull/63.
-
-If you download the .tar.gz release and plop my installation script from that PR over the original script, the command to execute it would be:
-
-`bash ./scripts/install_venv.sh --prompt` and at the prompt, provide the path to your env. For example if your env is named `tensorflow` and your Miniforge Python is installed in your home directory, you'd pass in: `/Users/Matthew/miniforge3/envs/tensorflow`. 
+[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. I wrote the instructions to install this on TensorFlow for Apple and these instructions are at https://github.com/apple/tensorflow_macos/issues/153.
 
 ### PyTorch
 At the time this section was written, Nov 27 2020, PyTorch had a merge request that has been merged to add ARM Compilation (https://github.com/pytorch/pytorch/pull/48275) but this has not been oficially released. This means, to use PyTorch, you must compile PyTorch on your own. Furthermore even if you go down this route, several PyTorch 'side' packages do not work, such as TorchVision.
