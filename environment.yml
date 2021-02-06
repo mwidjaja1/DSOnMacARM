@@ -21,10 +21,9 @@ dependencies:
   - keras-preprocessing
   - opt_einsum
   - protobuf
+  - tensorboard
   - tensorflow_estimator
   - termcolor
   - typing_extensions
   - wrapt
-  - pip:
-      - tensorboard
       
