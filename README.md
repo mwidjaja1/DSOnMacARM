@@ -37,7 +37,7 @@ After you do this, to ensure you truly got an ARM version of Python, verify this
 That said even though it has Conda, that doesn't mean all packages are ARM ready -- only some are. The quick way to see what packages may be available for ARM are if you:
 
 1. See a package made by conda-forge (https://anaconda.org/conda-forge) AND
-2. That package has an architecture of `osx-arm64` or `noarch` (note that while these will install on ARM, these are not guaranteed to work -- of note, JupyterLab did not work).
+2. That package has an architecture of `osx-arm64` or the package is `noarch` and all its dependencies are built.
 
 If your package meets both requirements, you can install it by running `conda -c conda-forge <PACKAGE>` once you have Miniforge installed.
 
@@ -54,6 +54,8 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - Scipy
 - Statsmodel (Added on 11/21/2020)
 - TensorFlow by manually installing Apple's version (more on this below)
+- R language (`conda install r-base` for a minimal R installation or `conda install r` for R plus recommended packages)
+- Fortran compiler (`conda install gfortran`)
 
 ### Things that kinda or totally don't work
 - Keras: Just no.
@@ -85,4 +87,3 @@ If you still want to install PyTorch, you'll want to first install Python using 
 
 ## Software that is not ARM ready at all
 - [Docker](https://www.docker.com/blog/expanding-dockers-developer-preview-program/): Update as of 12/10, there is a Developer Preview Program to test an Apple Silicon Docker.
-- [R or Fortran](https://developer.r-project.org/Blog/public/2020/11/02/will-r-work-on-apple-silicon/): Not anytime soon.
