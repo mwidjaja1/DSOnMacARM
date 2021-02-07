@@ -84,6 +84,4 @@ If you still want to install PyTorch, you'll want to first install Python using 
 ## Software that is kind of ARM Ready
 - [MATLAB](https://www.mathworks.com/matlabcentral/answers/641925-is-matlab-supported-on-apple-silicon-macs?s_tid=srchtitle): The latest version can run under Rosetta, with a few exceptions for some packages. An ARM Version is in development but there's no release date as of yet.
 -  [Visual Studio Code](https://code.visualstudio.com/insiders/): There is an ARM version but only for the 'Beta' Insiders Track which is linked here. The regular version works perfectly well using Rosetta emulation.
-
-## Software that is not ARM ready at all
 - [Docker](https://www.docker.com/blog/expanding-dockers-developer-preview-program/): Update as of 12/10, there is a Developer Preview Program to test an Apple Silicon Docker.
