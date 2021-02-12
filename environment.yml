@@ -22,8 +22,7 @@ dependencies:
   - opt_einsum
   - protobuf
   - tensorboard
-  - tensorflow_estimator
+  - tensorflow-estimator
   - termcolor
   - typing_extensions
   - wrapt
-      
