@@ -1,7 +1,7 @@
 name: apple_tensorflow
 channels:
   - conda-forge
-  - defaults
+  - nodefaults
 dependencies:
   - grpcio
   - h5py
@@ -13,18 +13,16 @@ dependencies:
   - termcolor
   - typeguard
   - wheel
-  - pip:
-      - absl-py
-      - astunparse
-      - flatbuffers
-      - gast
-      - google-pasta
-      - keras_preprocessing
-      - opt_einsum
-      - protobuf
-      - tensorboard
-      - tensorflow_estimator
-      - termcolor
-      - typing_extensions
-      - wrapt
-      
+  - absl-py
+  - astunparse
+  - python-flatbuffers
+  - gast
+  - google-pasta
+  - keras-preprocessing
+  - opt_einsum
+  - protobuf
+  - tensorboard
+  - tensorflow-estimator
+  - termcolor
+  - typing_extensions
+  - wrapt
