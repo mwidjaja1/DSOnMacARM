@@ -49,7 +49,7 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - Matplotlib
 - Numpy
 - Pandas
-- PyTorch by manually installing the latest version from source (i.e. you cannot use `pip` or `conda` at this time, Nov 2020, to install it). More on this below.
+- PyTorch (Added on 03/08/2021). More on this below.
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
 - Statsmodel (Added on 11/21/2020)
