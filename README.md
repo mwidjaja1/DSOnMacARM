@@ -49,7 +49,7 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 - Matplotlib
 - Numpy
 - Pandas
-- PyTorch by manually installing the latest version from source (i.e. you cannot use `pip` or `conda` at this time, Nov 2020, to install it). More on this below.
+- PyTorch (Added on 03/08/2021).
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
 - Statsmodel (Added on 11/21/2020)
@@ -59,7 +59,6 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 
 ### Things that kinda or totally don't work
 - Keras: Just no.
-- PyTorch: Yes, PyTorch is in the above list of working software, but it has side packages such as TorchVision that isn't ARM Compatible quite yet. You can install it using Rosetta, under a Rosetta translated version of Python, pretty easily though.
 - TensorFlow: Yes, TensorFlow is also in the list above, but it's also here because while Apple's version works, it is currently just forked from the real TensorFlow. The officially updated TensorFlow that you can get from `conda` or `pip` has not been ARM updated and thus these paths could diverge unless Apple and TensorFlow work together a bit closer.
 
 ### If you prefer Anaconda
