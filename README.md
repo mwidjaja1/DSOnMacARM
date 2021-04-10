@@ -1,7 +1,9 @@
 # Spinning up a Python Data Science Environment on Mac ARM
 So I got a 'day one' m1 Macbook Air (i.e. an Apple Silicon ARM Mac) and I had to do some work to spin up my Data Science environment... and do it well. I'm going to leave my notes here in the hopes it (1) helps me not lose these and (2) helps someone out on the internet.
 
-# Rosetta Terminal
+---
+
+## Rosetta Terminal
 Rosetta is a way to emulate Intel/x86 Software on your ARM processor. There are two ways to use Rosetta in your terminal
 
 1. Add `arch -x86_64` before your terminal commands OR
@@ -13,22 +15,20 @@ Note that not everything compiles in Rosetta and you should be wary of it. I hav
 
 ---
 
-# Homebrew & Apple Command Line Tools
+## Homebrew & Apple Command Line Tools
 Homebrew now has native support for Apple Silicon as of Version 3.0 and you can follow the  default installation at https://brew.sh. This'll install to `/opt/homebrew/bin/brew`. Bonus: The ARM native version now installs the Apple Command Line Tools for you for free.
 
 Even if Apple Command Line Tools + Homebrew comes with Python, and they do, I still recommend going out of your way to install Miniforge below to get the complete Conda ecosystem.
 
 ---
 
-# Python/R/Fortran (i.e. Anaconda/Miniforge)
+## Python/R/Fortran (i.e. Anaconda/Miniforge)
 So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture.
 
 ### How should I install Python/Conda on ARM?
 To install Miniforge, use the installer link at https://github.com/conda-forge/miniforge#miniforge3 and then install it in your normal terminal. Remember not to run this in a Rosetta Terminal, if you created one, because this installer script can run in your regular ARM terminal. 
 
-After you do this, to ensure you truly got an ARM version of Python, verify this:
-1. Type `file $(which python)` in your terminal. It should point to your MiniForge version, which for me, was at `/Users/YOURUSERNAMEHERE/miniforge3/bin/python`. It should also provide an
-2. Launch Python in your Terminal by running `python`
+After you do this, to ensure you truly got an ARM version of Python, run `file $(which python)` in your terminal. It should point to your MiniForge version and say it's an ARM executable. For me, it said: `/Users/YOURUSERNAMEHERE/miniforge3/bin/python: Mach-O 64-bit executable`
 
 ### What packages are available on ARM?
 That said even though it has Conda, that doesn't mean all packages are ARM ready -- only some are. The quick way to see what packages may be available for ARM are if you:
@@ -56,7 +56,7 @@ Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs an
 
 ### Things that kinda or totally don't work
 - Keras: Just no.
-- TensorFlow: Yes, TensorFlow is also in the list above, but it's also here because while Apple's version works, it is currently just forked from the real TensorFlow. The officially updated TensorFlow that you can get from `conda` or `pip` has not been ARM updated and thus these paths could diverge unless Apple and TensorFlow work together a bit closer.
+- Torchaudio: A support package for PyTorch, TorchAudio cannot be installed in an ARM version of Python.
 
 ### If you prefer Anaconda
 If you must use Anaconda because a package isn't ARM ready, you can use Rosetta to emulate an Intel Anaconda as per the tips in the [Homebrew Section](homebrew-and-rosetta-terminal). You can then use said terminal to install Anaconda. Remember that just because you can emulate Anaconda doesn't mean you will be able to successfully run every package.
@@ -68,16 +68,12 @@ Many packages, including Apple's TensorFlow, prefers Python 3.8 over the Python 
 Each recipe for Python Packages appear to flip-flop between wanting Conda version 4.9.0 or something newer. If you have to jump around to make things work, remember the command is `conda install conda=PUT_VERSION_HERE`.
 
 ### TensorFlow
-[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. I wrote the instructions to install this on TensorFlow for Apple and these instructions are at https://github.com/apple/tensorflow_macos/issues/153.
-
-### PyTorch
-At the time this section was written, Nov 27 2020, PyTorch had a merge request that has been merged to add ARM Compilation (https://github.com/pytorch/pytorch/pull/48275) but this has not been oficially released. This means, to use PyTorch, you must compile PyTorch on your own. Furthermore even if you go down this route, several PyTorch 'side' packages do not work, such as TorchVision.
-
-If you still want to install PyTorch, you'll want to first install Python using Miniforge linked above. After doing that, you should be able to follow the 'Build from Source' instructions at https://github.com/pytorch/pytorch#from-source. I don't think I needed Homebrew nor anything from it, but if you do, I am using a 'Rosetta compiled' version of Homebrew.
+[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. I wrote the instructions to install this on TensorFlow for Apple and these instructions are at https://github.com/apple/tensorflow_macos/issues/153. Note that because Apple forked TensorFlow, you may not get all of the latest advancements from TensorFlow, so this route may not be ideal for cutting edge research.
 
 ---
 
 ## Software that is kind of ARM Ready
 - [MATLAB](https://www.mathworks.com/matlabcentral/answers/641925-is-matlab-supported-on-apple-silicon-macs?s_tid=srchtitle): The latest version can run under Rosetta, with a few exceptions for some packages. An ARM Version is in development but there's no release date as of yet.
--  [Visual Studio Code](https://code.visualstudio.com/insiders/): There is an ARM version but only for the 'Beta' Insiders Track which is linked here. The regular version works perfectly well using Rosetta emulation.
 - [Docker](https://www.docker.com/blog/expanding-dockers-developer-preview-program/): Update as of 12/10, there is a Developer Preview Program to test an Apple Silicon Docker.
+
+As of 04/2021, Visual Studio Code is ARM native.
