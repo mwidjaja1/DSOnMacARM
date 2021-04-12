@@ -3,26 +3,26 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
+  - absl-py
+  - astunparse
+  - gast
+  - google-pasta
   - grpcio
   - h5py
   - ipython
+  - keras-preprocessing
   - numpy
+  - opt_einsum
   - pip=20.2.4
+  - protobuf
+  - python-flatbuffers
   - python=3.8
   - scipy
-  - termcolor
-  - typeguard
-  - wheel
-  - absl-py
-  - astunparse
-  - python-flatbuffers
-  - gast
-  - google-pasta
-  - keras-preprocessing
-  - opt_einsum
-  - protobuf
   - tensorboard
   - tensorflow-estimator
   - termcolor
+  - typeguard
   - typing_extensions
+  - wheel
   - wrapt
+  
