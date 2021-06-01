@@ -7,7 +7,7 @@ So I got a 'day one' m1 Macbook Air (i.e. an Apple Silicon ARM Mac) and I had to
 Rosetta is a way to emulate Intel/x86 Software on your ARM processor. There are two ways to use Rosetta in your terminal
 
 1. Add `arch -x86_64` before your terminal commands OR
-2. [Recommended: Just create a terminal that always launches in Rosetta](https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/)
+2. [Just create a terminal that always launches in Rosetta](https://osxdaily.com/2020/11/18/how-run-homebrew-x86-terminal-apple-silicon-mac/). Remember once you did this, you'll effectively have two terminals -- one Rosetta and one ARM. Also as of 06/2021, you may not find you need to do this anymore in light of how many programs 'just work' on ARM now.
 
 Once you do that, you can install Homebrew using Rosetta and get access to most of its packages.
 
