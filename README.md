@@ -23,7 +23,7 @@ Even if Apple Command Line Tools + Homebrew comes with Python, and they do, I st
 ---
 
 ## Python/R/Fortran (i.e. Anaconda/Miniforge)
-So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the type this guide was written. So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture.
+So normally I'd use Anaconda but Anaconda is only optimized for Intel Macs at the time this guide was written (and still is as of 06/2021). So I used Miniforge which fortunately has an ARM equivilant and basically wraps Conda + Python in a happy ARM architecture.
 
 ### How should I install Python/Conda on ARM?
 To install Miniforge, use the installer link at https://github.com/conda-forge/miniforge#miniforge3 and then install it in your normal terminal. Remember not to run this in a Rosetta Terminal, if you created one, because this installer script can run in your regular ARM terminal. 
