@@ -39,7 +39,7 @@ That said even though it has Conda, that doesn't mean all packages are ARM ready
 If your package meets both requirements, you can install it by running `conda -c conda-forge <PACKAGE>` once you have Miniforge installed.
 
 #### Things you can definately get on an ARM Python
-Note this doesn't mean these are ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means unlike Intel, these aren't emulated so they can run on the CPU natively. That said, take all these with a grain of salt, I haven't got the chance to put all of these packages to their paces so some functionality may still be broken.
+Note: This doesn't mean that these packages are all ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means that unlike Intel compiled packages, these packages won't be emulated, so they can run on the CPU natively. That said, take all of these with a grain of salt, I haven't got the chance to put all of these packages through their paces so some functionality might still be broken.
 
 - Bokeh (Added on 11/23/2020)
 - JupyterLab & Notebooks: The latest version of `appnope` (updated around 11/30/2020) has fixed a Ctypes bug on ARM, which now permits Jupyter to run on ARM.
