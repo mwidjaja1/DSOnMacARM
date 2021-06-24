@@ -48,6 +48,7 @@ Most commonly used libraries:
 - Bokeh (Added on 11/23/2020)
 - Cython BLIS
 - JupyterLab & Notebooks: The latest version of `appnope` (updated around 11/30/2020) has fixed a Ctypes bug on ARM, which now permits Jupyter to run on ARM.
+- LightGBM
 - Matplotlib
 - NetworkX
 - NLTK
@@ -59,7 +60,7 @@ Most commonly used libraries:
 - Spacy
 - Statsmodel (Added on 11/21/2020)
 - Streamlit
-- TensorFlow, official version (Added on 07/04/2021), or by manually installing Apple's version (more on this below)
+- TensorFlow, official version with [Metal plugin](https://developer.apple.com/metal/tensorflow-plugin/) (Added on 07/04/2021)
 - R language (`conda install r-base` for a minimal R installation or `conda install r` for R plus recommended packages)
 - Fortran compiler (`conda install gfortran`)
 
@@ -69,9 +70,7 @@ Most commonly used libraries:
 - MKL
 - Torchaudio: A support package for PyTorch, TorchAudio cannot be installed in an ARM version of Python
 - Umap-learn
-
-#### TensorFlow
-[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. I wrote the instructions to install this on TensorFlow for Apple and these instructions are at https://github.com/apple/tensorflow_macos/issues/153. Note that because Apple forked TensorFlow, you may not get all of the latest advancements from TensorFlow, so this route may not be ideal for cutting edge research.
+- XGBoost: no official [conda ARM version available](https://pypi.org/project/xgboost/), but can be installed from [pip sources](https://towardsdatascience.com/install-xgboost-and-lightgbm-on-apple-m1-macs-cb75180a2dda)
 
 ### ARM Python Gotchas
 
