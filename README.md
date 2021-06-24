@@ -41,21 +41,33 @@ If your package meets both requirements, you can install it by running `conda -c
 #### Things you can definately get on an ARM Python
 Note: This doesn't mean that these packages are all ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means that unlike Intel compiled packages, these packages won't be emulated, so they can run on the CPU natively. That said, take all of these with a grain of salt, I haven't got the chance to put all of these packages through their paces so some functionality might still be broken.
 
+The biggest problem with ARM versions are that these are often behind official releases, and are less frequently updated. Before building your local environment in a full ARM mode, please check requirements of your project.
+
+Most commonly used libraries:
+- Arrow
 - Bokeh (Added on 11/23/2020)
+- Cython BLIS
 - JupyterLab & Notebooks: The latest version of `appnope` (updated around 11/30/2020) has fixed a Ctypes bug on ARM, which now permits Jupyter to run on ARM.
 - Matplotlib
+- NetworkX
+- NLTK
 - Numpy
 - Pandas
 - PyTorch (Added on 03/08/2021).
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
+- Spacy
 - Statsmodel (Added on 11/21/2020)
-- TensorFlow by manually installing Apple's version (more on this below)
+- Streamlit
+- TensorFlow, official version (Added on 07/04/2021), or by manually installing Apple's version (more on this below)
+- Umap-learn
 - R language (`conda install r-base` for a minimal R installation or `conda install r` for R plus recommended packages)
 - Fortran compiler (`conda install gfortran`)
 
 #### Things that kinda or totally don't work
+- Gensim: No support, no visibility on ETA
 - Keras: Just no.
+- MKL
 - Torchaudio: A support package for PyTorch, TorchAudio cannot be installed in an ARM version of Python.
 
 #### TensorFlow
