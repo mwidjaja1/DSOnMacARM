@@ -41,25 +41,36 @@ If your package meets both requirements, you can install it by running `conda -c
 #### Things you can definately get on an ARM Python
 Note: This doesn't mean that these packages are all ARM 'optimized' to use all of the fancy GPUs and Neural Cores. It just means that unlike Intel compiled packages, these packages won't be emulated, so they can run on the CPU natively. That said, take all of these with a grain of salt, I haven't got the chance to put all of these packages through their paces so some functionality might still be broken.
 
+The biggest problem with ARM versions are that these are often behind official releases, and are less frequently updated. Before building your local environment in a full ARM mode, please check requirements of your project.
+
+Most commonly used libraries:
+- Arrow
 - Bokeh (Added on 11/23/2020)
+- Cython BLIS
 - JupyterLab & Notebooks: The latest version of `appnope` (updated around 11/30/2020) has fixed a Ctypes bug on ARM, which now permits Jupyter to run on ARM.
+- LightGBM
 - Matplotlib
+- NetworkX
+- NLTK
 - Numpy
 - Pandas
-- PyTorch (Added on 03/08/2021).
+- PyTorch with Torchvision (Added on 03/08/2021)
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
+- Spacy
 - Statsmodel (Added on 11/21/2020)
-- TensorFlow by manually installing Apple's version (more on this below)
+- Streamlit
+- TensorFlow, official version with [Metal plugin](https://developer.apple.com/metal/tensorflow-plugin/) (Added on 04/07/2021)
 - R language (`conda install r-base` for a minimal R installation or `conda install r` for R plus recommended packages)
 - Fortran compiler (`conda install gfortran`)
 
 #### Things that kinda or totally don't work
+- Gensim: No support, no visibility on ETA
 - Keras: Just no.
-- Torchaudio: A support package for PyTorch, TorchAudio cannot be installed in an ARM version of Python.
-
-#### TensorFlow
-[Apple has created a TensorFlow](https://github.com/apple/tensorflow_macos) that is optimized for their ARM Processors and GPUs. I wrote the instructions to install this on TensorFlow for Apple and these instructions are at https://github.com/apple/tensorflow_macos/issues/153. Note that because Apple forked TensorFlow, you may not get all of the latest advancements from TensorFlow, so this route may not be ideal for cutting edge research.
+- MKL
+- Torchaudio or Torchtext: support packages for PyTorch, both Torchaudio or Torchtext cannot be installed in an ARM version of Python
+- Umap-learn
+- XGBoost: no official [conda ARM version available](https://anaconda.org/conda-forge/xgboost), but can be installed from [pip sources](https://towardsdatascience.com/install-xgboost-and-lightgbm-on-apple-m1-macs-cb75180a2dda)
 
 ### ARM Python Gotchas
 
