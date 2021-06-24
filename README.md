@@ -54,13 +54,13 @@ Most commonly used libraries:
 - NLTK
 - Numpy
 - Pandas
-- PyTorch (Added on 03/08/2021).
+- PyTorch with Torchvision (Added on 03/08/2021)
 - Scikit-Learn (Added on 11/21/2020)
 - Scipy
 - Spacy
 - Statsmodel (Added on 11/21/2020)
 - Streamlit
-- TensorFlow, official version with [Metal plugin](https://developer.apple.com/metal/tensorflow-plugin/) (Added on 07/04/2021)
+- TensorFlow, official version with [Metal plugin](https://developer.apple.com/metal/tensorflow-plugin/) (Added on 04/07/2021)
 - R language (`conda install r-base` for a minimal R installation or `conda install r` for R plus recommended packages)
 - Fortran compiler (`conda install gfortran`)
 
@@ -68,7 +68,7 @@ Most commonly used libraries:
 - Gensim: No support, no visibility on ETA
 - Keras: Just no.
 - MKL
-- Torchaudio: A support package for PyTorch, TorchAudio cannot be installed in an ARM version of Python
+- Torchaudio or Torchtext: support packages for PyTorch, both Torchaudio or Torchtext cannot be installed in an ARM version of Python
 - Umap-learn
 - XGBoost: no official [conda ARM version available](https://pypi.org/project/xgboost/), but can be installed from [pip sources](https://towardsdatascience.com/install-xgboost-and-lightgbm-on-apple-m1-macs-cb75180a2dda)
 
