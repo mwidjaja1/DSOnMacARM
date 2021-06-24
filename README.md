@@ -70,7 +70,7 @@ Most commonly used libraries:
 - MKL
 - Torchaudio or Torchtext: support packages for PyTorch, both Torchaudio or Torchtext cannot be installed in an ARM version of Python
 - Umap-learn
-- XGBoost: no official [conda ARM version available](https://pypi.org/project/xgboost/), but can be installed from [pip sources](https://towardsdatascience.com/install-xgboost-and-lightgbm-on-apple-m1-macs-cb75180a2dda)
+- XGBoost: no official [conda ARM version available](https://anaconda.org/conda-forge/xgboost), but can be installed from [pip sources](https://towardsdatascience.com/install-xgboost-and-lightgbm-on-apple-m1-macs-cb75180a2dda)
 
 ### ARM Python Gotchas
 
