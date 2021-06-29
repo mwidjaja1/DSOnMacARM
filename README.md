@@ -66,7 +66,7 @@ Most commonly used libraries:
 
 #### Things that kinda or totally don't work
 - Gensim: No support, no visibility on ETA
-- Keras: Just no.
+- Keras: Just no. (most stuff I tried works with `from tensorflow import keras`)
 - MKL
 - Torchaudio or Torchtext: support packages for PyTorch, both Torchaudio or Torchtext cannot be installed in an ARM version of Python
 - Umap-learn
